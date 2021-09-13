@@ -14,7 +14,7 @@ public class BookTest {
 
     @Test
     public void testBooksIDIncrement() {
-        assertTrue("Book2 ID > Book1 ID", book1.getId() > book2.getId());
+        assertTrue("Book2 ID > Book1 ID", book2.getId() > book1.getId());
     }
 
     @Test

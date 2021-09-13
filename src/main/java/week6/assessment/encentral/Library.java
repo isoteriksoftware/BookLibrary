@@ -68,6 +68,7 @@ public final class Library {
         for (Book book : books.values())
             totalCopies += book.getCopies();
 
+        System.out.println(books.size());
         return totalCopies;
     }
 

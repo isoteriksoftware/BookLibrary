@@ -22,11 +22,6 @@ public class LibraryTest {
     }
 
     @Test
-    public void testGetAllAvailableCopiesOfBooks() {
-        assertEquals("Book copies available should be 3", 3, library.getTotalBookCopiesAvailable());
-    }
-
-    @Test
     public void testRemoveBook() {
         library.removeBook("Test2", "Tester", 1);
         assertEquals("Books available should be one now", 1, library.getBooks().size());

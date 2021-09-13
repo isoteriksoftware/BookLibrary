@@ -30,8 +30,10 @@ public class BorrowRecord {
     public static class BorrowRecordComparator implements Comparator<BorrowRecord> {
         @Override
         public int compare(BorrowRecord record1, BorrowRecord record2) {
-            return Float.compare(record1.getBorrower().getPriority(),
-                    record2.getBorrower().getPriority());
+            float p1 = record1.getBorrower().getPriority();
+            float p2 = record2.getBorrower().getPriority();
+
+            return Float.compare(p2, p1);
         }
     }
 }
