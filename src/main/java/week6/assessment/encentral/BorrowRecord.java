@@ -2,6 +2,9 @@ package week6.assessment.encentral;
 
 import java.util.Comparator;
 
+/**
+ * Stores the record of a single borrow event.
+ */
 public class BorrowRecord {
     private Book book;
     private Borrower borrower;
@@ -27,6 +30,9 @@ public class BorrowRecord {
         this.borrower = borrower;
     }
 
+    /**
+     * Compares records based on the priority of the borrower
+     */
     public static class BorrowRecordComparator implements Comparator<BorrowRecord> {
         @Override
         public int compare(BorrowRecord record1, BorrowRecord record2) {

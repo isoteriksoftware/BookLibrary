@@ -1,5 +1,8 @@
 package week6.assessment.encentral;
 
+/**
+ * A Teacher is a Borrower with the highest priority
+ */
 public class Teacher implements Borrower {
     @Override
     public float getPriority() {

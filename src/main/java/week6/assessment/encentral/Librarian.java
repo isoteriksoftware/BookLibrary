@@ -9,8 +9,16 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Random;
 
+/**
+ * A librarian is responsible for adding books to the library and also lending out books.
+ * Borrow requests are queued as they are received. The requests are later processed by the librarian when there are
+ * no longer any new request being added
+ */
 public class Librarian {
+    // A queue of borrow requests
     private final PriorityQueue<BorrowRecord> borrowRequests;
+
+    // A list of borrow records
     private final List<BorrowRecord> borrowRecords;
 
     private final Library library;
@@ -25,6 +33,12 @@ public class Librarian {
         logger = LogManager.getLogger("Librarian");
     }
 
+    /**
+     * Adds a new borrow request
+     * @param borrower the borrower
+     * @param bookName the name of the book to borrow
+     * @param author the author of the book to borrow
+     */
     public void addBorrowRequest(Borrower borrower, String bookName, String author) {
         if (!library.isBookAvailable(bookName, author))
             return;
@@ -34,6 +48,11 @@ public class Librarian {
         logger.info(String.format("%s wants to borrow %s", borrower, book));
     }
 
+    /**
+     * Adds a new book to the library
+     * @param name the name of the book to add
+     * @param author the author of the book to add
+     */
     public void addBook(String name, String author) {
         library.addBook(name, author);
     }
@@ -42,6 +61,9 @@ public class Librarian {
         return borrowRequests.size();
     }
 
+    /**
+     * Processes all the queued borrow requests
+     */
     public void processBorrowRequests() {
         while (!borrowRequests.isEmpty()) {
             BorrowRecord record = borrowRequests.poll();
@@ -64,6 +86,9 @@ public class Librarian {
         return borrowRecords;
     }
 
+    /**
+     * Automatically populates the library with default books
+     */
     public void populateLibrary() {
         Random random = new Random();
 

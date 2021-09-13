@@ -1,6 +1,12 @@
 package week6.assessment.encentral;
 
+/**
+ * A Student is a borrower with lower priority than a Teacher
+ */
 public class Student implements Borrower {
+    /**
+     * Every student has a level to further categorize them. Students of higher levels have higher priorities
+     */
     public enum Level {
         JSS1(0.1f),
         JSS2(0.2f),
@@ -20,7 +26,7 @@ public class Student implements Borrower {
         }
     }
 
-    private Level level;
+    private final Level level;
 
     public Student(Level level) {
         this.level = level;

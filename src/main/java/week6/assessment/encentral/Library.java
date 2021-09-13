@@ -3,8 +3,12 @@ package week6.assessment.encentral;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The Library class manages available books
+ */
 public final class Library {
-    private Map<String, Book> books;
+    // Books are mapped to their name + author
+    private final Map<String, Book> books;
 
     private static Library instance;
 
@@ -53,6 +57,12 @@ public final class Library {
         }
     }
 
+    /**
+     * Checks if a book is available. This also makes sure enough copies are available
+     * @param name the book's name
+     * @param author the author's name
+     * @return true if the book exists and has enough copies. false otherwise
+     */
     public boolean isBookAvailable(String name, String author) {
         // We use a combination of the book name and the author for the key because
         // two different books can have the same name but different authors
